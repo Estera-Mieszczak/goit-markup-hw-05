@@ -145,7 +145,7 @@ ul {
   background-color: var(--Light);
   cursor: pointer;
   padding: 12px 24px;
-  transition-property: color, background-color, box-shadow;
+  transition-property: color, background-color, box-shadow, border;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -560,12 +560,10 @@ ul {
   position: fixed;
   inset: 0 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
+   opacity: 1;
   pointer-events: all;
   background-color: rgba(46, 47, 66, 0.40);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-window.is-hidden {
   visibility: hidden;
@@ -573,31 +571,44 @@ ul {
   pointer-events: none;
 }
 .modal-body {
+  position: absolute;
   background-color: var(--Modal-background);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   border-radius: 4px;
   padding: 24px;
-  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close {
-width: 24px;
-height: 24px;
-cursor: pointer;
-background-color: var(--Accent);
-border-radius: 50%;
-border-color: rgba(0, 0, 0, 0.10);
-border-width: 1px;
-display: flex;
-align-items: center;
-justify-content: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: var(--Accent);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
 transition-property: background-color;
 transition-duration: 250ms;
 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close:hover {
 background-color: var(--Pressed-state);
+border: none;
 }
+.modal-close:focus {
+  background-color: var(--Pressed-state);
+  border: none;
+  }
 .close-icon {
   fill: var(--Dark);
   transition-property: fill;
@@ -605,5 +616,8 @@ background-color: var(--Pressed-state);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .close-icon:hover {
+  fill: var(--White-background);
+}
+.close-icon:focus {
   fill: var(--White-background);
 }
