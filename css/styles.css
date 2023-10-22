@@ -145,7 +145,7 @@ ul {
   background-color: var(--Light);
   cursor: pointer;
   padding: 12px 24px;
-  color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-button:hover {
   color: var(--White-background);
@@ -446,7 +446,9 @@ ul {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card-item {
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card-item:hover {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -459,10 +461,10 @@ ul {
   position: relative;
   overflow: hidden;
 }
-.project-card-item-wrapper-content:hover {
+.project-card-item:hover p {
   transform: translateY(0%);
 }
-.project-card-item-wrapper-content:focus {
+.project-card-item:focus p {
   transform: translateY(0%);
 }
 .project-card-item-wrapper-content {
@@ -619,8 +621,8 @@ border: none;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .close-icon:hover {
-  fill: var(--White-background);
+  fill: #ffffff;
 }
 .close-icon:focus {
-  fill: var(--White-background);
+  fill: #ffffff;
 }
