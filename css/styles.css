@@ -619,8 +619,8 @@ border: none;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close:hover .close-icon {
-  fill: var(--White-background);
+  fill: #ffffff;
 }
 .close-icon:focus .close-icon {
-  fill: var(--White-background);
+  fill: #ffffff;
 }
